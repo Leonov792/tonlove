@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>TON Love 💎</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <span class="logo">💎 TON Love</span>
+        <div class="header-actions">
+            <span class="balance" id="balanceDisplay">💎 10</span>
+            <button class="icon-btn" id="btnNotifications">🔔 <span class="badge" id="notifBadge">0</span></button>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tabs">
+        <button class="tab active" data-tab="swipe">💕 Анкеты</button>
+        <button class="tab" data-tab="gifts">🎁 Подарки</button>
+        <button class="tab" data-tab="matches">💞 Симпатии</button>
+        <button class="tab" data-tab="profile">👤 Профиль</button>
+    </div>
+
+    <!-- Swipe Cards -->
+    <div class="tab-content active" id="tab-swipe">
+        <div class="card-stack" id="cardStack">
+            <div class="empty-state" id="emptyState" style="display:none">
+                <p>🎉 Анкеты закончились!</p>
+                <p class="sub">Загляните позже</p>
+            </div>
+        </div>
+        <div class="swipe-actions" id="swipeActions">
+            <button class="btn-skip" id="btnSkip">✕</button>
+            <button class="btn-like" id="btnLike">❤️</button>
+        </div>
+    </div>
+
+    <!-- Gifts Tab -->
+    <div class="tab-content" id="tab-gifts">
+        <div class="sub-tabs">
+            <button class="sub-tab active" data-subtab="shop">🏪 Магазин</button>
+            <button class="sub-tab" data-subtab="received">📥 Полученные</button>
+            <button class="sub-tab" data-subtab="sent">📤 Отправленные</button>
+        </div>
+        <div class="gift-grid" id="giftShop"></div>
+        <div class="gift-list" id="giftList" style="display:none"></div>
+    </div>
+
+    <!-- Matches Tab -->
+    <div class="tab-content" id="tab-matches">
+        <div class="match-list" id="matchList">
+            <p class="empty-msg">Пока нет взаимных симпатий 💫</p>
+        </div>
+    </div>
+
+    <!-- Profile Tab -->
+    <div class="tab-content" id="tab-profile">
+        <div class="profile-card" id="myProfile">
+            <div class="profile-avatar" id="profileAvatar">👤</div>
+            <h2 id="profileName">Имя</h2>
+            <p id="profileBio">Био</p>
+        </div>
+        <button class="btn-edit" id="btnEditProfile">✏️ Редактировать</button>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <h3>Редактировать профиль</h3>
+            <input type="text" id="editName" placeholder="Имя" class="input">
+            <input type="number" id="editAge" placeholder="Возраст" class="input" min="16" max="99">
+            <input type="text" id="editCity" placeholder="Город" class="input">
+            <textarea id="editBio" placeholder="О себе" class="input" rows="3"></textarea>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnCancelEdit">Отмена</button>
+                <button class="btn-save" id="btnSaveProfile">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Gift Modal -->
+    <div class="modal" id="giftModal">
+        <div class="modal-content">
+            <h3 id="giftModalTitle">Отправить подарок</h3>
+            <p id="giftModalDesc"></p>
+            <textarea id="giftMessage" placeholder="Сообщение (необязательно)" class="input" rows="2"></textarea>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnCancelGift">Отмена</button>
+                <button class="btn-save" id="btnSendGift">💎 Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="panel" id="notifPanel" style="display:none">
+        <div class="panel-header">
+            <h3>🔔 Уведомления</h3>
+            <button class="icon-btn" id="btnCloseNotifs">✕</button>
+        </div>
+        <div class="notif-list" id="notifList"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
