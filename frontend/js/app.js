@@ -1,7 +1,7 @@
 // TON Love — Telegram Mini App
 // ============================================
 
-const API = 'https://tonlove-api.onrender.com/api';
+const API = 'https://backend-six-chi-80.vercel.app/api';
 const tg = window.Telegram?.WebApp;
 
 let currentUser = null;
